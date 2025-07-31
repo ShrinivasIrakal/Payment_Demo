@@ -21,7 +21,7 @@ public class Payment {
     private Account senderAccount;
 
     private String recipientAccountNumber;
-    private BigDecimal amount;
+    private float amount;
     private String remarks;
     private String paymentMode;
     private boolean isScheduled;
@@ -30,6 +30,10 @@ public class Payment {
     private LocalDate scheduledDate;
     private String status;
     private LocalDateTime createdAt;
+
+    @ManyToOne
+    @JoinColumn(name = "beneficiary_id")
+    private Beneficiary beneficiary;
 
     @OneToMany(mappedBy = "payment")
     private List<PaymentLog> logs;

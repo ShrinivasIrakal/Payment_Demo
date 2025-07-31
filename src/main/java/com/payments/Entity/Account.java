@@ -23,7 +23,7 @@ public class Account {
     @JoinColumn(name = "customerId")
     private Customer customer;
 
-    private BigDecimal balance;
+    private float balance;
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "account")

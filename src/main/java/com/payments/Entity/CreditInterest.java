@@ -19,6 +19,6 @@ public class CreditInterest {
     private Account account;
 
     private LocalDate date;
-    private BigDecimal closingBalance;
-    private BigDecimal interestAmount;
+    private float closingBalance;
+    private float interestAmount;
 }
