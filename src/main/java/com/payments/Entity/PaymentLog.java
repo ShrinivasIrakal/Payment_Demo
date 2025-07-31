@@ -16,7 +16,6 @@ public class PaymentLog {
     @ManyToOne
     @JoinColumn(name = "paymentId")
     private Payment payment;
-
     private String eventType;
     private String message;
     private LocalDateTime timestamp;

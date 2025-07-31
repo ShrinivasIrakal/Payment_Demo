@@ -36,8 +36,17 @@ public class PaymentService {
         if(benfBankName.equals("ASY Bank") || paymentDto.getAmount()<account.getBalance()){
             float newBalance = account.getBalance() - paymentDto.getAmount();
             account.setBalance(newBalance);
-
             accountRepository.save(account);
+
+            Account beneficiaryAccount = beneficiary.getAccount();
+
+            float totalBal = beneficiaryAccount.getBalance() + paymentDto.getAmount();
+            beneficiaryAccount.setBalance(totalBal);
+
+            accountRepository.save(beneficiaryAccount);
+
+
+
 
             paymentDto.setStatus("Successful payment");
             Payment payment = mapToEntity(paymentDto);
